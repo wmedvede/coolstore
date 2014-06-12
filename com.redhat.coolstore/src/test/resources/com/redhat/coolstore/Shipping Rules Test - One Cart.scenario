@@ -14,9 +14,9 @@
       </fieldData>
       <isModify>false</isModify>
     </fact-data>
-    <org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
       <name>shipping-rules</name>
-    </org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
     <execution-trace>
       <executionTimeResult>0</executionTimeResult>
       <numberOfRulesFired>1</numberOfRulesFired>
