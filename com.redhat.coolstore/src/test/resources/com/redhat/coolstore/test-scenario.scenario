@@ -1,0 +1,14 @@
+<scenario>
+  <name>test-scenario.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <execution-trace/>
+  </fixtures>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>com.redhat.coolstore</packageName>
+  <imports>
+    <imports/>
+  </imports>
+</scenario>

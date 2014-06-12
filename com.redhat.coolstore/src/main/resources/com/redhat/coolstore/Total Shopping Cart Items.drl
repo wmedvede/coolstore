@@ -1,0 +1,26 @@
+package com.redhat.coolstore;
+
+import com.redhat.coolstore.factmodel.ShoppingCartItem;
+import com.redhat.coolstore.factmodel.ShoppingCart;
+import java.lang.Double;
+import com.redhat.coolstore.factmodel.PromoEvent;
+
+rule "Total Shopping Cart Items"
+
+ruleflow-group "pricing-rules"
+dialect "mvel"
+no-loop true
+
+when
+	$sc : ShoppingCart( )
+	$cartItemTotal : Double( ) from accumulate ( $sci : ShoppingCartItem( shoppingCart == $sc ),
+		 sum($sci.price * $sci.quantity))
+	$cartItemPromoSavings : Double( ) from accumulate ( $sci : ShoppingCartItem( shoppingCart == $sc ),
+		 sum($sci.promoSavings * $sci.quantity))
+then
+	$sc.setCartItemTotal( $cartItemTotal );
+	$sc.setCartItemPromoSavings( $cartItemPromoSavings * -1 );
+	update( $sc );
+	
+
+end

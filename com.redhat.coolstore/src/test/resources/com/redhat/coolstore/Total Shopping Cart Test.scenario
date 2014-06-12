@@ -1,0 +1,102 @@
+<scenario>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+      <name>total-rules</name>
+    </org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    <fact-data>
+      <type>ShoppingCart</type>
+      <name>$sc1</name>
+      <fieldData>
+        <field-data>
+          <name>cartItemTotal</name>
+          <value>0</value>
+          <nature>0</nature>
+        </field-data>
+        <field-data>
+          <name>shippingTotal</name>
+          <value>0</value>
+          <nature>0</nature>
+        </field-data>
+      </fieldData>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>ShoppingCart</type>
+      <name>$sc2</name>
+      <fieldData>
+        <field-data>
+          <name>cartItemTotal</name>
+          <value>25</value>
+          <nature>0</nature>
+        </field-data>
+        <field-data>
+          <name>shippingTotal</name>
+          <value>2.99</value>
+          <nature>0</nature>
+        </field-data>
+      </fieldData>
+      <isModify>false</isModify>
+    </fact-data>
+    <execution-trace>
+      <executionTimeResult>1</executionTimeResult>
+      <numberOfRulesFired>2</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>Total Shopping Cart</ruleName>
+      <explanation>Rule [Total Shopping Cart] was actived 2 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>2</actualResult>
+    </expect-rule>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>cartTotal</fieldName>
+          <expected>0</expected>
+          <successResult>true</successResult>
+          <explanation>[$sc1] field [cartTotal] was [0].</explanation>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>$sc1</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>cartTotal</fieldName>
+          <expected>27.99</expected>
+          <successResult>true</successResult>
+          <explanation>[$sc2] field [cartTotal] was [27.99].</explanation>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>$sc2</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2012-12-08 22:18:31.89 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+<packageName>com.redhat.coolstore</packageName>
+<imports>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.redhat.coolstore.factmodel.ShoppingCartItem</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.redhat.coolstore.factmodel.ShoppingCart</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>java.lang.Double</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.redhat.coolstore.factmodel.PromoEvent</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
+  </imports>
+</scenario>

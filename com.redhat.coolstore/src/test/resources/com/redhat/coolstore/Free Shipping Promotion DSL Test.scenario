@@ -1,0 +1,105 @@
+<scenario>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>ShoppingCart</type>
+      <name>$sc</name>
+      <fieldData>
+        <field-data>
+          <name>cartItemTotal</name>
+          <value>75</value>
+          <nature>0</nature>
+        </field-data>
+        <field-data>
+          <name>shippingTotal</name>
+          <value>10.99</value>
+          <nature>0</nature>
+        </field-data>
+      </fieldData>
+      <isModify>false</isModify>
+    </fact-data>
+    <org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+      <name>promo-rules</name>
+    </org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    <fact-data>
+      <type>ShoppingCart</type>
+      <name>$sc2</name>
+      <fieldData>
+        <field-data>
+          <name>cartItemTotal</name>
+          <value>74.99</value>
+          <nature>0</nature>
+        </field-data>
+        <field-data>
+          <name>shippingTotal</name>
+          <value>10.99</value>
+          <nature>0</nature>
+        </field-data>
+      </fieldData>
+      <isModify>false</isModify>
+    </fact-data>
+    <execution-trace>
+      <executionTimeResult>0</executionTimeResult>
+      <numberOfRulesFired>1</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>Free Shipping Promotion DSL</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [Free Shipping Promotion DSL] activated 1 times.</explanation>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>shippingTotal</fieldName>
+          <expected>0</expected>
+          <actualResult>10.99</actualResult>
+          <successResult>true</successResult>
+          <explanation>[$sc] field [shippingTotal] was [0].</explanation>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>$sc</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>shippingTotal</fieldName>
+          <expected>10.99</expected>
+          <successResult>true</successResult>
+          <explanation>[$sc2] field [shippingTotal] was [10.99].</explanation>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>$sc2</name>
+      <anonymous>false</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2012-12-07 20:23:25.372 UTC</lastRunResult>
+  <rules>
+    <string>Free Shipping Promotion</string>
+  </rules>
+  <inclusive>false</inclusive>
+<packageName>com.redhat.coolstore</packageName>
+<imports>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.redhat.coolstore.factmodel.ShoppingCartItem</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.redhat.coolstore.factmodel.ShoppingCart</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>java.lang.Double</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.redhat.coolstore.factmodel.PromoEvent</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
+  </imports>
+</scenario>

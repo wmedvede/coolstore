@@ -1,0 +1,17 @@
+package com.redhat.coolstore;
+
+import com.redhat.coolstore.factmodel.ShoppingCartItem;
+import com.redhat.coolstore.factmodel.ShoppingCart;
+import java.lang.Double;
+import com.redhat.coolstore.factmodel.PromoEvent;
+
+rule "Total Shopping Cart"
+	no-loop true
+	ruleflow-group "total-rules"
+	dialect "mvel"
+	when
+		$sc : ShoppingCart( )
+	then
+		$sc.setCartTotal( $sc.cartItemTotal + $sc.shippingTotal );
+		update( $sc );
+end

@@ -1,0 +1,16 @@
+package com.redhat.coolstore;
+
+import com.redhat.coolstore.factmodel.ShoppingCartItem;
+import com.redhat.coolstore.factmodel.ShoppingCart;
+import java.lang.Double;
+import com.redhat.coolstore.factmodel.PromoEvent;
+
+rule "Free Shipping Promotion DSL"
+	ruleflow-group "promo-rules"
+	no-loop true
+	dialect "mvel"
+	when
+		When customer spends $75
+	then
+		Apply Free Shipping
+end
