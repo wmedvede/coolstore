@@ -1,3 +1,4 @@
+
 <scenario>
   <maxRuleFirings>100000</maxRuleFirings>
   <globals/>
@@ -19,9 +20,9 @@
       </fieldData>
       <isModify>false</isModify>
     </fact-data>
-    <org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
       <name>promo-rules</name>
-    </org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
     <fact-data>
       <type>ShoppingCart</type>
       <name>$sc2</name>

@@ -1,10 +1,11 @@
+
 <scenario>
   <maxRuleFirings>100000</maxRuleFirings>
   <globals/>
   <fixtures>
-    <org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
       <name>pricing-rules</name>
-    </org.drools.guvnor.client.modeldriven.testing.ActivateRuleFlowGroup>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
     <fact-data>
       <type>ShoppingCart</type>
       <name>$sc</name>
